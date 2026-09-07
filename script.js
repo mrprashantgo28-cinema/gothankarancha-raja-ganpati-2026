@@ -86,3 +86,25 @@ function closeLightbox(){
 document.getElementById('closeLightbox').addEventListener('click',closeLightbox);
 lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+// Curtain Opening Logic
+const openCurtainBtn = document.getElementById('openCurtainBtn');
+const curtainOverlay = document.getElementById('curtainOverlay');
+
+if (openCurtainBtn && curtainOverlay) {
+  openCurtainBtn.addEventListener('click', () => {
+    curtainOverlay.classList.add('open');
+    
+    if (music && music.paused) {
+      music.play().then(() => {
+        if (musicText) musicText.textContent = 'संगीत बंद करा';
+        if (musicIcon) musicIcon.textContent = '❚❚';
+        if (musicBtn2) musicBtn2.textContent = '❚❚ वेबसाइटवरील संगीत बंद करा';
+      }).catch(e => console.log('Autoplay prevented'));
+    }
+
+    setTimeout(() => {
+      curtainOverlay.style.display = 'none';
+    }, 1800);
+  });
+}
