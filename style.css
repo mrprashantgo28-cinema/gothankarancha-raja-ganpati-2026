@@ -139,3 +139,97 @@ footer{padding:55px 20px;background:#1a1403;color:#fff;text-align:center}footer 
 
 @media(max-width:800px){.details-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:1fr}.gallery-item img{height:500px}.entry-stage{min-height:590px}.entry-photo{height:420px}.arch{width:42%}}
 @media(max-width:560px){.music-btn{top:12px;right:12px;font-size:14px;padding:8px 12px}.hero-content{padding-top:75px}.small-family{font-size:17px}h1{font-size:54px}.shlok{font-size:16px;padding:12px 10px}.section{padding:62px 0}.details-grid{grid-template-columns:1fr}.gallery-item img{height:460px}.entry-stage{min-height:560px}.entry-photo{width:76vw;height:390px}.entry-halo{width:330px;height:330px}.entry-mandala{width:280px;height:280px}.entry-caption{left:10px;right:10px}.entry-caption strong{font-size:24px}.entry-caption span{font-size:15px}}
+
+/* Curtain Entrance Styles */
+.curtain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(135deg, #4a0000 0%, #8b0000 50%, #2b0000 100%);
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 1;
+}
+
+.curtain-left {
+  left: 0;
+  border-right: 4px solid #d4af37;
+}
+
+.curtain-right {
+  right: 0;
+  border-left: 4px solid #d4af37;
+}
+
+.curtain-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 20px;
+}
+
+.curtain-om {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 70px;
+  color: #ffe89e;
+  text-shadow: 0 0 20px rgba(212,175,55,0.8);
+}
+
+.curtain-content h2 {
+  font-size: 24px;
+  color: #f9f1d8;
+  margin-top: 10px;
+}
+
+.curtain-content p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.open-curtain-btn {
+  padding: 15px 35px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #332606;
+  background: linear-gradient(135deg, #ffe89e, #d4af37);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.open-curtain-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 232, 158, 0.9);
+}
+
+.curtain-overlay.open .curtain-left {
+  transform: translateX(-100%);
+}
+
+.curtain-overlay.open .curtain-right {
+  transform: translateX(100%);
+}
+
+.curtain-overlay.open .curtain-content {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
